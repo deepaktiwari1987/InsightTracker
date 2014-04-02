@@ -1,0 +1,112 @@
+Calculation:
+  tableName: calculation
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    status_code:
+      type: integer(4)
+      unsigned: 1
+      notnull: true
+    calculator_id:
+      type: integer(4)
+      unsigned: 1
+      notnull: true
+    calculation_id:
+      type: integer(4)
+      unsigned: 1
+      notnull: true
+    calculator_session_id:
+      type: string(32)
+      notnull: true
+    last_updated:
+      type: timestamp(25)
+      notnull: true
+CalculationParam:
+  tableName: calculation_param
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    calculation_id:
+      type: integer(4)
+      unsigned: 1
+      notnull: true
+    param_id:
+      type: integer(4)
+      notnull: true
+    param_value:
+      type: string(255)
+      notnull: true
+    last_updated:
+      type: timestamp(25)
+      notnull: true
+Calculator:
+  tableName: calculator
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    status_code:
+      type: integer(4)
+      unsigned: 1
+      notnull: true
+    name:
+      type: string(255)
+      notnull: true
+    display_order:
+      type: integer(4)
+      unsigned: 1
+    last_updated:
+      type: timestamp(25)
+      notnull: true
+CalculatorValue:
+  tableName: calculator_value
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    calculator_id:
+      type: integer(4)
+      notnull: true
+    display_order:
+      type: integer(4)
+      unsigned: 1
+    last_updated:
+      type: timestamp(25)
+      notnull: true
+  relations:
+    Calculator:
+      foreignAlias: CalculatorValues   
+CalculatorValueMeta:
+  tableName: calculator_value_meta
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    status_code:
+      type: integer(4)
+      unsigned: 1
+      notnull: true
+    calculator_value_id:
+      type: integer(4)
+      notnull: true
+    meta_name:
+      type: string(255)
+      notnull: true
+    meta_data:
+      type: string(255)
+      notnull: true
+    last_updated:
+      type: timestamp(25)
+      notnull: true

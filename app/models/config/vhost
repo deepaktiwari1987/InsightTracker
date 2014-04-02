@@ -1,0 +1,16 @@
+<VirtualHost *:80>
+	ServerName lexiscalculate.staging.lnukapps.co.uk
+	DocumentRoot "/var/sites/lexiscalculate/web"
+	DirectoryIndex index.php
+	<Directory "/var/sites/lexiscalculate/web">
+		AllowOverride All
+		Allow from All
+	</Directory>
+
+	Alias /sf "/opt/lib/symfony-1.4.1/data/web/sf"
+
+	<Directory "/opt/lib/symfony-1.4.1/data/web/sf">
+		AllowOverride All
+		Allow from All
+	</Directory>
+</VirtualHost>

@@ -1,0 +1,11 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: calculators, action: calculators }
+
+default_index:
+  url:   /:module
+  param: { /action:*  }
+
+default:
+  url:   /:module/:action/*
